@@ -24,5 +24,4 @@ export class EmployeeList implements OnInit {
       this.employees = this.employees.filter(emp => emp.id !== id);
     }); 
   }
-
 }
