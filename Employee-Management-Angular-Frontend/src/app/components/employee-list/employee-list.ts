@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../models/employee';
-import { EmloyeeService as EmployeeService } from '../../services/emloyee-service';
+import { EmployeeService as EmployeeService } from '../../services/employee-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-employee-list',
+  standalone: true,                     // <-- WICHTIG
+  imports: [CommonModule],
   templateUrl: './employee-list.html',
   styleUrl: './employee-list.css',
 })
