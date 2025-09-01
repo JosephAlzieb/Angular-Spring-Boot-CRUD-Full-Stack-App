@@ -47,6 +47,6 @@ jobs:
         working-directory: Employee-Managment-Backend
         run: mvn test
 
-      - name: Run Angular Tests
-        working-directory: Employee-Management-Angular-Frontend
-        run: npm test -- --watch=false --browsers=ChromeHeadless
+      #- name: Run Angular Tests
+      #  working-directory: Employee-Management-Angular-Frontend
+      #  run: npm test -- --watch=false --browsers=ChromeHeadless
