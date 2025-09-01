@@ -3,17 +3,18 @@ import { EmployeeList } from './components/employee-list/employee-list';
 import { EmployeeCreate } from './components/employee-create/employee-create';
 import { EmployeeUpdate } from './components/employee-update/employee-update';
 import { EmployeeDetail } from './components/employee-detail/employee-detail';
+import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
     { path: 'employees', component: EmployeeList },
     { path: 'create', component: EmployeeCreate },
     { path: '', redirectTo: 'employees', pathMatch: 'full' },
     { path: 'update/:id', component: EmployeeUpdate, title: 'Update Employee', 
-        data: { renderMode: 'client' }
+        data: { renderMode: RenderMode.Server }
 
     },
     { path: 'details/:id', component: EmployeeDetail, title: 'Employee Details',
-        data: { renderMode: 'client' }
+        data: { renderMode: RenderMode.Server }
 
     },
 ];
