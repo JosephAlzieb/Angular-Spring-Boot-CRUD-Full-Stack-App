@@ -8,6 +8,6 @@ export const routes: Routes = [
     { path: 'employees', component: EmployeeList },
     { path: 'create', component: EmployeeCreate },
     { path: '', redirectTo: 'employees', pathMatch: 'full' },
-    { path: 'update/:id', component: EmployeeUpdate, data: { renderMode: 'server' }},
-    { path: 'details/:id', component: EmployeeDetail, data: { renderMode: 'server' }},
+    { path: 'update/:id', component: EmployeeUpdate, title: 'Update Employee' },
+    { path: 'details/:id', component: EmployeeDetail, title: 'Employee Details' },
 ];
