@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './employee-detail.css'
 })
 export class EmployeeDetail implements OnInit {
-    employee?: Employee;
+    employee!: Employee;
 
     constructor(
       private router: Router,
