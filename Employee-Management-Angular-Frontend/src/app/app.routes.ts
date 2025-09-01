@@ -8,6 +8,14 @@ export const routes: Routes = [
     { path: 'employees', component: EmployeeList },
     { path: 'create', component: EmployeeCreate },
     { path: '', redirectTo: 'employees', pathMatch: 'full' },
-    { path: 'update/:id', component: EmployeeUpdate, title: 'Update Employee' },
-    { path: 'details/:id', component: EmployeeDetail, title: 'Employee Details' },
+    { path: 'update/:id', component: EmployeeUpdate, title: 'Update Employee', 
+        data: {
+            renderMode: 'server' // nicht prerendern, nur SSR
+        }
+    },
+    { path: 'details/:id', component: EmployeeDetail, title: 'Employee Details',
+        data: {
+            renderMode: 'server' // nicht prerendern, nur SSR
+        }
+},
 ];
