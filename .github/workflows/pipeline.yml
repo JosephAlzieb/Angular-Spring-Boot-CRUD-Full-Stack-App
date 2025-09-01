@@ -1,0 +1,52 @@
+name: Build and Test (Spring Boot + Angular)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # --- Code auschecken
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # --- Java für Spring Boot vorbereiten
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      # --- Node.js für Angular vorbereiten
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # --- Backend bauen (Spring Boot)
+      - name: Build Spring Boot Backend
+        working-directory: Employee-Managment-Backend
+        run: mvn -B package --file pom.xml
+
+      # --- Frontend bauen (Angular)
+      - name: Install Angular dependencies
+        working-directory: Employee-Management-Angular-Frontend
+        run: npm install
+
+      - name: Build Angular Frontend
+        working-directory: Employee-Management-Angular-Frontend
+        run: npm run build -- --configuration production
+
+      # --- Tests (optional)
+      - name: Run Spring Boot Tests
+        working-directory: Employee-Managment-Backend
+        run: mvn test
+
+      - name: Run Angular Tests
+        working-directory: Employee-Management-Angular-Frontend
+        run: npm test -- --watch=false --browsers=ChromeHeadless
