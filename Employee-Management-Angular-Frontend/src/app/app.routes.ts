@@ -9,13 +9,11 @@ export const routes: Routes = [
     { path: 'create', component: EmployeeCreate },
     { path: '', redirectTo: 'employees', pathMatch: 'full' },
     { path: 'update/:id', component: EmployeeUpdate, title: 'Update Employee', 
-        data: {
-            renderMode: 'server' // nicht prerendern, nur SSR
-        }
+        data: { renderMode: 'client' }
+
     },
     { path: 'details/:id', component: EmployeeDetail, title: 'Employee Details',
-        data: {
-            renderMode: 'server' // nicht prerendern, nur SSR
-        }
-},
+        data: { renderMode: 'client' }
+
+    },
 ];
