@@ -37,6 +37,10 @@ export class EmployeeList implements OnInit {
   }
 
   updateEmployee(id: number): void {
-    this.router.navigate(['/update-employee', id]);
+    this.router.navigate(['/update', id]);
+  }
+
+  viewEmployee(id: number): void {
+    this.router.navigate(['/details', id], { skipLocationChange: false });
   }
 }
